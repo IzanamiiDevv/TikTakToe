@@ -27,7 +27,7 @@ export default function Menu({ goStart, goMulti }:any) {
             </button>
             <br />
             <button className='button'  onClick={()=>{
-                
+
             }}>
                 <div className="top">Exit</div>
                 <div className="bottom"></div>
