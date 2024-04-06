@@ -4,26 +4,21 @@ import './../assets/Game.css';
 
 export default function Game({ player }:{ player:string }){
     const [ cells, setCells ] = useState(['','','','','','','','','']);
-    const [ turn, setTurn ] = useState(true);
     const [ isEnd, setEnd ] = useState(false);
     const [ hasWinner, setWinner ] = useState(false);
+    const [ winner , setsWinner ] = useState('');
 
     function calculateTurn(currentCell: string[]) {
         const availableSpace = currentCell
             .map((item: string, index: number) => item === '' ? index : undefined)
             .filter((index: number | undefined) => index !== undefined);
         
-        validateWinner(currentCell);
-        if(hasWinner){
-            setEnd(true);
-        }
         if(availableSpace.length == 0){
             setEnd(true);
         };
         const newCells:any = [...currentCell];
         newCells[AI(newCells, 'easy')] = player == 'X' ? 'O' : 'X';
-        validateWinner(newCells);
-    
+        if(validateWinner(newCells,player == 'X' ? 'O' : 'X')){return};
         return newCells;
     }
     
@@ -40,7 +35,7 @@ export default function Game({ player }:{ player:string }){
     }
 
     
-    function validateWinner(cells:any) {
+    function validateWinner(cells:string[], user:string) {
         const possibleOutCome = [
             //horizontal
             [0, 1, 2],
@@ -60,10 +55,12 @@ export default function Game({ player }:{ player:string }){
     
             if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
                 setWinner(true);
+                setsWinner(user);
                 setEnd(true);
-                break;
+                return true;
             }
         }
+        return false;
     }
     
 
@@ -73,10 +70,10 @@ export default function Game({ player }:{ player:string }){
             <div className="board-container">
                 {cells.map((item:any,index:number)=>{
                     return (<div key={index} className='cells' onClick={()=>{
-                        if(!turn){return};
                         if(item != ''){return};
                         const newCells = [...cells];
                         newCells[index] = player;
+                        if(validateWinner(newCells,player)){return};
                         setCells(calculateTurn(newCells));
                     }}>{item}</div>);
                 })}
@@ -90,14 +87,14 @@ export default function Game({ player }:{ player:string }){
             </button>
         </div>
     ) : (
-        <End restart={setEnd} clear={setCells} clearWin={setWinner} winner={hasWinner}/>
+        <End restart={setEnd} clear={setCells} clearWin={setWinner} winner={winner}/>
     )
 }
 
-function End({ restart, clear, clearWin }:any){
+function End({ restart, clear, clearWin, winner }:any){
     return (
-        <div className='Draw'>
-            <h1>{  }</h1>
+        <div className='End'>
+            <h1>{ winner } is the Winner</h1>
             <button className='button' onClick={()=>{
                 clear(['','','','','','','','','']);
                 clearWin(false);
