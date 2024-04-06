@@ -9,16 +9,17 @@ export default function App() {
   const [isStart, setStart] = useState(false);
   const [goStart, makeStart] = useState(false);
   const [isMulti, setMulti] = useState(false);
+  const [ mode, serMode ] = useState('normal');
   const [ palyer , setPlayer] = useState('X');
   
 
 
   return (
-    isStart ? (goStart ? (<Game player={palyer}/>) : (<Choose goStart={makeStart} goBack={setStart} setPlayer={setPlayer}/>)) : (
+    isStart ? (goStart ? (<Game player={palyer} mode={mode} goBack={setStart} setMulti={setMulti}/>) : (<Choose goStart={makeStart} goBack={setStart} setPlayer={setPlayer}/>)) : (
       isMulti ? (
-        <Game player={palyer}/>
+        <Game player={palyer} mode={mode} goBack={setStart} setMulti={setMulti}/>
       ) : (
-        <Menu goStart={setStart} goMulti={setMulti}/>
+        <Menu goStart={setStart} makeStart={makeStart}  goMulti={setMulti} setMode={serMode}/>
       )
     )
   );

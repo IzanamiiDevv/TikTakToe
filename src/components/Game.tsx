@@ -2,11 +2,12 @@ import { useState } from 'react';
 import './../assets/button.css';
 import './../assets/Game.css';
 
-export default function Game({ player }:{ player:string }){
+export default function Game({ player,mode,goBack , setMulti}:{ player:string, mode:string,goBack:any , setMulti:any}){
     const [ cells, setCells ] = useState(['','','','','','','','','']);
     const [ isEnd, setEnd ] = useState(false);
     const [ hasWinner, setWinner ] = useState(false);
     const [ winner , setsWinner ] = useState('');
+    const [ yourTurn, changeTurn ] = useState(true);
 
     function calculateTurn(currentCell: string[]) {
         const availableSpace = currentCell
@@ -72,6 +73,19 @@ export default function Game({ player }:{ player:string }){
                     return (<div key={index} className='cells' onClick={()=>{
                         if(item != ''){return};
                         const newCells = [...cells];
+                        if(mode == 'multiplayer'){
+                            if(yourTurn){
+                                newCells[index] = player;
+                                if(validateWinner(newCells,player)){return};
+                            }
+                            if(!yourTurn){
+                                newCells[index] = player== 'X' ? 'O' : 'X';
+                                if(validateWinner(newCells,player== 'X' ? 'O' : 'X')){return}
+                            }
+                            changeTurn(!yourTurn);
+                            setCells(newCells);
+                            return;
+                        };
                         newCells[index] = player;
                         if(validateWinner(newCells,player)){return};
                         setCells(calculateTurn(newCells));
@@ -87,22 +101,31 @@ export default function Game({ player }:{ player:string }){
             </button>
         </div>
     ) : (
-        <End restart={setEnd} clear={setCells} clearWin={setWinner} winner={winner}/>
+        <End restart={setEnd} clear={setCells} clearWin={setWinner} winner={winner} goBack={goBack} setMulti={setMulti}/>
     )
 }
 
-function End({ restart, clear, clearWin, winner }:any){
+function End({ restart, clear, clearWin, winner, goBack,setMulti }:any){
     return (
         <div className='End'>
             <h1>{ winner } is the Winner</h1>
-            <button className='button' onClick={()=>{
-                clear(['','','','','','','','','']);
-                clearWin(false);
-                restart(false);
-            }}>
-                <div className="top">Restart Game</div>
-                <div className="bottom"></div>
-            </button>
+            <section className='navigation'>
+                <button className='button' onClick={()=>{
+                    setMulti(false);
+                    goBack(true);
+                }}>
+                    <div className="top">Exit</div>
+                    <div className="bottom"></div>
+                </button>
+                <button className='button' onClick={()=>{
+                    clear(['','','','','','','','','']);
+                    clearWin(false);
+                    restart(false);
+                }}>
+                    <div className="top">Restart Game</div>
+                    <div className="bottom"></div>
+                </button>
+            </section>
         </div>
     )
 }
