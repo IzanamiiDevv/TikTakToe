@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.Game h1 {
+    font-size: 5rem;
+    margin-top: 8vh;
+}
+
 .Game .cells {
     width: 75px;
     height: 75px;
@@ -29,4 +34,20 @@
     outline: 2px solid rgb(36, 38, 34);
     justify-content: center;
     text-align: center;
+    margin-top: 3vh;
+}
+
+.Game .status {
+    padding: 10px 15px 10px;
+    background-color: rgb(255, 255, 238);
+    width: fit-content;
+    color: rgb(36, 38, 34);
+    margin: auto;
+    margin-top: 1vh;
+    outline: 2px solid rgb(36, 38, 34);
+    border-radius: 10px;
+}
+
+.Game .button {
+    margin-top: 3vh;
 }
