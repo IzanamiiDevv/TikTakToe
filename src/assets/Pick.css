@@ -1,0 +1,44 @@
+.selection {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selection .navigation {
+    display: flex;
+    gap: 5vh;
+}
+
+.selection h1 {
+    margin-top: 8vh;
+    font-size: 5rem;
+}
+
+.selection .card {
+    height: 40vh;
+    width: calc(40vh / 1.5);
+    background-color: rgb(255, 255, 238);
+    outline: 2px solid rgb(36, 38, 34);
+    border-radius: 20px;
+    font-size: 10rem;
+    padding-top: 10vh;
+    cursor: pointer;
+}
+
+.selection #X:hover, .selection #O:hover  {
+    outline: 5px solid rgb(31, 211, 151);
+}
+
+.selection .card.active {
+    outline: 5px solid rgb(24, 240, 71);
+}
+
+
+.selection .picker {
+    display: flex;
+    gap: 5vh;
+    padding-bottom: 3vh;
+    color: rgb(36, 38, 34);
+}

@@ -26,5 +26,5 @@ body {
   background-color: var(--background);
   width: 100%;
   font-family: 'Nunito', 'Lilita One','Poppins' ;
-  color: aliceblue;
+  color: rgb(255, 255, 238);;
 }
