@@ -1,0 +1,32 @@
+.Game {
+    text-align: center;
+}
+
+.Game .cells {
+    width: 75px;
+    height: 75px;
+    background-color: wheat;
+    border-radius: 10px;
+    line-height: 75px;
+    font-size: 50px;
+    cursor: pointer;
+    color: black;
+    
+    outline: 2px solid rgb(36, 38, 34);
+
+}
+
+.Game .board-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    row-gap: 10px;
+    gap: 10px;
+    width: 225px;
+    margin: auto;
+    background-color: rgb(255, 255, 238);
+    padding: 25px;
+    border-radius: 10px;
+    outline: 2px solid rgb(36, 38, 34);
+    justify-content: center;
+    text-align: center;
+}
