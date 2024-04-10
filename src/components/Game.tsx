@@ -80,6 +80,9 @@ export default function Game({ player,mode,goBack , clearMode, mustBack}:{ playe
                             if(yourTurn){
                                 newCells[index] = player;
                                 if(validateWinner(newCells,player)){return};
+                                if(newCells.filter(item => {return item == ''}).length == 0){
+                                    setCells(['','','','','','','','','']);
+                                }
                             }
                             if(!yourTurn){
                                 newCells[index] = player== 'X' ? 'O' : 'X';
