@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './components/Menu'
 import './assets/button.css'
 import Menu from './components/Menu'
@@ -13,11 +13,10 @@ export default function App() {
   const [ palyer , setPlayer] = useState('X');
   
 
-
   return (
-    isStart ? (goStart ? (<Game player={palyer} mode={mode} goBack={setStart} clearMode={setMulti} mustBack={isStart}/>) : (<Choose goStart={makeStart} goBack={setStart} setPlayer={setPlayer}/>)) : (
+    isStart ? (goStart ? (<Game player={palyer} mode={mode} goBack={setStart} clearMode={setMulti} mustBack={makeStart}/>) : (<Choose goStart={makeStart} goBack={setStart} setPlayer={setPlayer}/>)) : (
       isMulti ? (
-        <Game player={palyer} mode={mode} goBack={setStart} clearMode={setMulti} mustBack={isStart}/>
+        <Game player={palyer} mode={mode} goBack={setStart} clearMode={setMulti} mustBack={makeStart}/>
       ) : (
         <Menu goStart={setStart} makeStart={makeStart}  goMulti={setMulti} setMode={serMode}/>
       )
