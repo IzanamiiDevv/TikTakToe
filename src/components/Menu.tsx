@@ -4,7 +4,11 @@ import './../assets/button.css';
 export default function Menu({ goStart, goMulti, setMode,makeStart }:any) {
     return(
         <div className="Menu">
-            <h1>TicTacToe</h1>
+            <div className='title'>
+                <div className='text'>Tic</div>
+                <div className='text'>Tac</div>
+                <div className='text'>Toe</div>
+            </div>
             <button id='Start' className='button' onClick={()=>{
                 goStart(true);
                 setMode('normal');
@@ -35,6 +39,10 @@ export default function Menu({ goStart, goMulti, setMode,makeStart }:any) {
                 <div className="top">Exit</div>
                 <div className="bottom"></div>
             </button>
+            <footer>
+                <div>&copy;Created By IzanamiiDevv</div>
+                <a href='https://github.com/IzanamiiDevv?tab=repositories'>Click Here for More Contents Like This</a>
+            </footer>
         </div>
     )
 }
