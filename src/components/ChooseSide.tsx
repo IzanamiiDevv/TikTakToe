@@ -13,14 +13,14 @@ export default function Choose({ goBack, goStart, setPlayer }: any) {
                 <div className={`card ${selectedCard === 'O' ? 'active' : ''}`} id='O' onClick={() => {setSelectedCard('O')}}>O</div>
             </section>
             <section className='navigation'>
-                <button className="button" onClick={() => {
+                <button id='Back' className="button" onClick={() => {
                     setSelectedCard('');
                     goBack(false);
                 }}>
                     <div className="top">Back</div>
                     <div className="bottom"></div>
                 </button>
-                <button className="button" onClick={()=>{
+                <button id='Begin' className="button" onClick={()=>{
                     if(selectedCard == '')return;
                     setPlayer(selectedCard);
                     goStart(true);

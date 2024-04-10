@@ -51,3 +51,11 @@
 .Draw {
     text-align: center;
 }
+
+.selection #Back .top, .selection #Back .bottom {
+    background-color: #FA7070;
+}
+
+.selection #Begin .top, .selection #Begin .bottom {
+    background-color: #90D26D;
+}

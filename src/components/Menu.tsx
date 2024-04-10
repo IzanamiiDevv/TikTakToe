@@ -5,7 +5,7 @@ export default function Menu({ goStart, goMulti, setMode,makeStart }:any) {
     return(
         <div className="Menu">
             <h1>TicTacToe</h1>
-            <button className='button' onClick={()=>{
+            <button id='Start' className='button' onClick={()=>{
                 goStart(true);
                 setMode('normal');
             }}>

@@ -10,3 +10,7 @@
 .Menu .button {
     margin-top: 5vh;
 }
+
+.Menu #Start .top,.Menu #Start .bottom {
+    background-color: #90D26D;
+}
