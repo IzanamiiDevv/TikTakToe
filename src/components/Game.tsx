@@ -71,8 +71,13 @@ export default function Game({ player,mode,goBack , setMulti}:{ player:string, m
             <div className="board-container">
                 {cells.map((item:any,index:number)=>{
                     return (<div key={index} className='cells' onClick={()=>{
+                        //Check if item was Already Clicked
                         if(item != ''){return};
+
+                        //Create a Copy of the Values
                         const newCells = [...cells];
+
+                        //Check if the Game Mode
                         if(mode == 'multiplayer'){
                             if(yourTurn){
                                 newCells[index] = player;
@@ -86,6 +91,8 @@ export default function Game({ player,mode,goBack , setMulti}:{ player:string, m
                             setCells(newCells);
                             return;
                         };
+
+                        //If Game was Set by Defualt
                         newCells[index] = player;
                         if(validateWinner(newCells,player)){return};
                         setCells(calculateTurn(newCells));
