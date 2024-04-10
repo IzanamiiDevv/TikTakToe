@@ -5,7 +5,6 @@ import './../assets/Game.css';
 export default function Game({ player,mode,goBack , clearMode, mustBack}:{ player:string, mode:string,goBack:any , clearMode:any, mustBack:any}){
     const [ cells, setCells ] = useState(['','','','','','','','','']);
     const [ isEnd, setEnd ] = useState(false);
-    const [ hasWinner, setWinner ] = useState(false);
     const [ winner , setsWinner ] = useState('');
     const [ yourTurn, changeTurn ] = useState(true);
 
@@ -55,7 +54,6 @@ export default function Game({ player,mode,goBack , clearMode, mustBack}:{ playe
             const [a, b, c] = possibleOutCome[i];
     
             if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
-                setWinner(true);
                 setsWinner(user);
                 setEnd(true);
                 return true;
@@ -108,11 +106,11 @@ export default function Game({ player,mode,goBack , clearMode, mustBack}:{ playe
             </button>
         </div>
     ) : (
-        <End restart={setEnd} clear={setCells} clearWin={setWinner} winner={winner} goBack={goBack} clearMode={clearMode} mustBack={mustBack}/>
+        <End restart={setEnd} clear={setCells} winner={winner} goBack={goBack} clearMode={clearMode} mustBack={mustBack}/>
     )
 }
 
-function End({ restart, clear, clearWin, winner, goBack,clearMode, mustBack }:any){
+function End({ restart, clear, winner, goBack,clearMode, mustBack }:any){
     return (
         <div className='End'>
             <h1>{ winner } is the Winner</h1>
@@ -127,7 +125,7 @@ function End({ restart, clear, clearWin, winner, goBack,clearMode, mustBack }:an
                 </button>
                 <button className='button' onClick={()=>{
                     clear(['','','','','','','','','']);
-                    clearWin(false);
+                    //clearWin(false);
                     restart(false);
                 }}>
                     <div className="top">Restart Game</div>
