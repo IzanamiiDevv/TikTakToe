@@ -15,9 +15,9 @@ export default function App() {
 
 
   return (
-    isStart ? (goStart ? (<Game player={palyer} mode={mode} goBack={setStart} setMulti={setMulti}/>) : (<Choose goStart={makeStart} goBack={setStart} setPlayer={setPlayer}/>)) : (
+    isStart ? (goStart ? (<Game player={palyer} mode={mode} goBack={setStart} clearMode={setMulti} mustBack={isStart}/>) : (<Choose goStart={makeStart} goBack={setStart} setPlayer={setPlayer}/>)) : (
       isMulti ? (
-        <Game player={palyer} mode={mode} goBack={setStart} setMulti={setMulti}/>
+        <Game player={palyer} mode={mode} goBack={setStart} clearMode={setMulti} mustBack={isStart}/>
       ) : (
         <Menu goStart={setStart} makeStart={makeStart}  goMulti={setMulti} setMode={serMode}/>
       )

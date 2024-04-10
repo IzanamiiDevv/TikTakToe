@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './../assets/button.css';
 import './../assets/Game.css';
 
-export default function Game({ player,mode,goBack , setMulti}:{ player:string, mode:string,goBack:any , setMulti:any}){
+export default function Game({ player,mode,goBack , clearMode, mustBack}:{ player:string, mode:string,goBack:any , clearMode:any, mustBack:any}){
     const [ cells, setCells ] = useState(['','','','','','','','','']);
     const [ isEnd, setEnd ] = useState(false);
     const [ hasWinner, setWinner ] = useState(false);
@@ -108,18 +108,19 @@ export default function Game({ player,mode,goBack , setMulti}:{ player:string, m
             </button>
         </div>
     ) : (
-        <End restart={setEnd} clear={setCells} clearWin={setWinner} winner={winner} goBack={goBack} setMulti={setMulti}/>
+        <End restart={setEnd} clear={setCells} clearWin={setWinner} winner={winner} goBack={goBack} clearMode={clearMode} mustBack={mustBack}/>
     )
 }
 
-function End({ restart, clear, clearWin, winner, goBack,setMulti }:any){
+function End({ restart, clear, clearWin, winner, goBack,clearMode, mustBack }:any){
     return (
         <div className='End'>
             <h1>{ winner } is the Winner</h1>
             <section className='navigation'>
                 <button className='button' onClick={()=>{
-                    setMulti(false);
-                    goBack(true);
+                    clearMode(!true);
+                    goBack(!true);
+                    mustBack(!true);
                 }}>
                     <div className="top">Exit</div>
                     <div className="bottom"></div>
