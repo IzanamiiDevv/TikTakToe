@@ -7,6 +7,7 @@
 }
 
 .selection .navigation {
+    margin-top: 2vh;
     display: flex;
     gap: 5vh;
 }
@@ -31,7 +32,7 @@
 .selection #X:hover, .selection #O:hover  {
     outline: 5px solid rgb(31, 211, 151);
     transform: scale(1.1);
-    
+
 }
 
 .selection .card.active {
