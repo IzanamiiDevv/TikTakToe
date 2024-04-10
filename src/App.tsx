@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './components/Menu'
 import './assets/button.css'
 import Menu from './components/Menu'
