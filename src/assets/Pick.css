@@ -17,18 +17,21 @@
 }
 
 .selection .card {
-    height: 40vh;
-    width: calc(40vh / 1.5);
+    height: 30vh;
+    width: calc(30vh / 1.5);
     background-color: rgb(255, 255, 238);
     outline: 2px solid rgb(36, 38, 34);
     border-radius: 20px;
-    font-size: 10rem;
+    font-size: 7.5rem;
     padding-top: 10vh;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .selection #X:hover, .selection #O:hover  {
     outline: 5px solid rgb(31, 211, 151);
+    transform: scale(1.1);
+    
 }
 
 .selection .card.active {
@@ -58,4 +61,16 @@
 
 .selection #Begin .top, .selection #Begin .bottom {
     background-color: #90D26D;
+}
+
+@keyframes PickFirst {
+    0% {
+        color: aqua;
+    }
+    50% {
+        gap: red;
+    }
+    100% {
+        color: aqua;
+    }
 }
