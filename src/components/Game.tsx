@@ -2,7 +2,16 @@ import { useState } from 'react';
 import './../assets/button.css';
 import './../assets/Game.css';
 
-export default function Game({ player,mode,goBack , clearMode, mustBack}:{ player:string, mode:string,goBack:any , clearMode:any, mustBack:any}){
+
+type GameParameter = {
+    player:string;
+    mode:string;
+    goBack:Function;
+    clearMode:Function;
+    mustBack:Function;
+}
+
+export default function Game({ player,mode,goBack , clearMode, mustBack}:GameParameter){
     const [ cells, setCells ] = useState(['','','','','','','','','']);
     const [ isEnd, setEnd ] = useState(false);
     const [ winner , setsWinner ] = useState('');
@@ -35,7 +44,7 @@ export default function Game({ player,mode,goBack , clearMode, mustBack}:{ playe
     }
 
     
-    function validateWinner(cells:string[], user:string) {
+    function validateWinner(cells:string[], user:string):boolean {
         const possibleOutCome = [
             //horizontal
             [0, 1, 2],
@@ -113,7 +122,16 @@ export default function Game({ player,mode,goBack , clearMode, mustBack}:{ playe
     )
 }
 
-function End({ restart, clear, winner, goBack,clearMode, mustBack }:any){
+type EndParameter = {
+    restart:Function;
+    clear:Function;
+    winner:string;
+    goBack:Function;
+    clearMode:Function;
+    mustBack:Function;
+}
+
+function End({ restart, clear, winner, goBack,clearMode, mustBack }:EndParameter){
     return (
         <div className='End'>
             <h1>{ winner } is the Winner</h1>
