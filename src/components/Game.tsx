@@ -74,7 +74,11 @@ export default function Game({ player,mode,goBack , clearMode, mustBack}:GamePar
 
     return !isEnd ? (
         <div className='Game'>
-            <h1>Tic Tac Toe</h1>
+            <div className='title'>
+                <div className='text'>Tic</div>
+                <div className='text'>Tac</div>
+                <div className='text'>Toe</div>
+            </div>
             <div className="board-container">
                 {cells.map((item:any,index:number)=>{
                     return (<div key={index} className='cells' onClick={()=>{

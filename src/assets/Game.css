@@ -64,3 +64,21 @@
     display: flex;
     gap: 5vh;
 }
+
+.Game .title {
+    display: flex;
+    justify-content: center;
+}
+
+.Game .title .text {
+    font-size: calc(1rem + 5vw);
+    margin: 8vh 0vw 0px;
+    cursor: default;
+    transition: 0.3s ease;
+}
+
+.Game .title .text:hover {
+    color: #FFF67E;
+    transform: scale(1.3);
+    margin: 8vh 3vw 0px;
+}
