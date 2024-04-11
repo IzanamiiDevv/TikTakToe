@@ -2,7 +2,14 @@ import { useState } from 'react';
 import './../assets/button.css';
 import './../assets/Pick.css';
 
-export default function Choose({ goBack, goStart, setPlayer }: any) {
+type ChooseParam = {
+    goBack:Function;
+    goStart:Function;
+    setPlayer:Function;
+}
+
+export default function Choose({ goBack, goStart, setPlayer }:ChooseParam) {
+    
     const [selectedCard, setSelectedCard] = useState<string>('');
 
     return (

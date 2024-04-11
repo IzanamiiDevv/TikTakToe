@@ -1,7 +1,14 @@
 import './../assets/Menu.css';
 import './../assets/button.css';
 
-export default function Menu({ goStart, goMulti, setMode,makeStart }:any) {
+type MenuParam = {
+    goStart:Function;
+    goMulti:Function;
+    setMode:Function;
+    makeStart:Function;
+}
+
+export default function Menu({ goStart, goMulti, setMode,makeStart }:MenuParam) {
     return(
         <div className="Menu">
             <div className='title'>
