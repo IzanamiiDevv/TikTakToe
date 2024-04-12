@@ -2,7 +2,7 @@
 
 This is a Tic Tac Toe game created using HTML, CSS, JavaScript, Vite, and React. The game offers two modes: **vs AI** and **multiplayer**, allowing you to play against an AI opponent or with your friends.
 
-## How to Play
+## How to Play:
 
 ### 1. Choose Game Mode
 
