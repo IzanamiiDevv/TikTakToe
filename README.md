@@ -1,4 +1,4 @@
-# Tic Tac Toe Game
+# Tic Tac Toe Game.
 
 This is a Tic Tac Toe game created using HTML, CSS, JavaScript, Vite, and React. The game offers two modes: **vs AI** and **multiplayer**, allowing you to play against an AI opponent or with your friends.
 
